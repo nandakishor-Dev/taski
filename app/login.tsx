@@ -23,13 +23,13 @@ export default function Login() {
   };
   console.log(formData);
   const handleSubmit = async () => {
+    router.push("/tabs/index");
     console.log("fn running");
     try {
       const response = await axios.post(
         "http://192.168.1.6:3000/user/login",
         formData
       );
-      router.push("/dashboard/dashboard");
       console.log("response =>>", response.data);
     } catch (err) {
       console.log(err);
