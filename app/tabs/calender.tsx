@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const calender = () => {
+const Calender = () => {
   return (
     <View>
-      <Text>calender</Text>
+      <Text>Calender</Text>
     </View>
   )
 }
 
-export default calender
+export default Calender
 
 const styles = StyleSheet.create({})

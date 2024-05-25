@@ -5,8 +5,26 @@ import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { FontAwesome5 } from "@expo/vector-icons";
+interface BottomBarProps {
+  onPress: (screen: string) => void;
+  currentScreen: string;
+}
+const BottomBar: React.FC<BottomBarProps> = ({ onPress, currentScreen }) => {
+  const handleLine = () => {
+    return (
+      <View
+        style={{
+          position: "absolute",
+          bottom: -15,
+          backgroundColor: "#CD5C5C",
+          height: 4,
+          width: "100%",
+          borderRadius: 5,
+        }}
+      ></View>
+    );
+  };
 
-const BottomBar = () => {
   return (
     <View style={styles.container}>
       <TouchableHighlight style={{ alignItems: "center" }}>
@@ -21,39 +39,45 @@ const BottomBar = () => {
 
       <View style={styles.lo}>
         <View>
-          <AntDesign onPress={() => {}} name="home" size={24} color="#CD5C5C" />
-          <View
-            style={{
-              position: "absolute",
-              bottom: -15,
-              backgroundColor: "#CD5C5C",
-              height: 4,
-              width: "100%",
-              borderRadius: 5,
+          <AntDesign
+            onPress={() => {
+              onPress("home");
             }}
-          ></View>
+            name="home"
+            size={24}
+            color="#CD5C5C"
+          />
+          {currentScreen === "home" && handleLine()}
         </View>
         <View>
-          <FontAwesome5 name="tasks" size={24} color="#CD5C5C" />
+          <FontAwesome5
+            onPress={() => onPress("tasklist")}
+            name="tasks"
+            size={24}
+            color="#CD5C5C"
+          />
+          {currentScreen === "tasklist" && handleLine()}
         </View>
         <View>
           <AntDesign
-            onPress={() => {  router.push('/tabs/calender')}}
+            onPress={() => onPress("calender")}
             name="calendar"
             size={24}
             color="#CD5C5C"
           />
+          {currentScreen === "calender" && handleLine()}
         </View>
 
         <View>
           <AntDesign
             onPress={() => {
-              router.push('/tabs/settings');
+              onPress("settings");
             }}
             name="setting"
             size={24}
             color="#CD5C5C"
           />
+          {currentScreen === "settings" && handleLine()}
         </View>
       </View>
     </View>
