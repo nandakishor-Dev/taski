@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
@@ -9,7 +9,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 const BottomBar = () => {
   return (
     <View style={styles.container}>
-      <View style={{ alignItems: "center" }}>
+      <TouchableHighlight style={{ alignItems: "center" }}>
         <Ionicons
           onPress={() => {}}
           style={styles.add}
@@ -17,7 +17,7 @@ const BottomBar = () => {
           size={66}
           color="#CD5C5C"
         />
-      </View>
+      </TouchableHighlight>
 
       <View style={styles.lo}>
         <View>
@@ -38,7 +38,7 @@ const BottomBar = () => {
         </View>
         <View>
           <AntDesign
-            onPress={() => {}}
+            onPress={() => {  router.push('/tabs/calender')}}
             name="calendar"
             size={24}
             color="#CD5C5C"
@@ -48,7 +48,7 @@ const BottomBar = () => {
         <View>
           <AntDesign
             onPress={() => {
-              router.push("/settings");
+              router.push('/tabs/settings');
             }}
             name="setting"
             size={24}
@@ -65,7 +65,6 @@ export default BottomBar;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     backgroundColor: "#fafaf9",
   },
   lo: {

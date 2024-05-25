@@ -23,7 +23,7 @@ export default function Login() {
   };
   console.log(formData);
   const handleSubmit = async () => {
-    router.push("/tabs/index");
+    router.push("/tabs");
     console.log("fn running");
     try {
       const response = await axios.post(

@@ -6,10 +6,10 @@ export default function Index() {
   return (
     // <Redirect href="/login" />
     <SafeAreaView>
-      <View style={{ height: "92%" }}>
+      <View style={{ height: "89%" }}>
  
       </View>
-      <View style={{ height: "8%" }}>
+      <View style={{ height: "11%" }}>
         <BottomBar />
       </View>
     </SafeAreaView>
